@@ -1,0 +1,5 @@
+sample_id,organism,resistance_gene,platform,identity
+S1,E. coli,blaCTX-M,Illumina,99.1
+S2,E. coli,aac(6')-Ib,Nanopore,95.3
+S3,K. pneumoniae,blaSHV,Nanopore,97.2
+S4,E. coli,blaCTX-M,Illumina,99.0

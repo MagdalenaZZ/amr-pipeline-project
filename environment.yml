@@ -1,0 +1,16 @@
+name: amr-pipeline
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pandas
+  - pyarrow        # Parquet support
+  - duckdb
+  - fastapi
+  - uvicorn
+  - pytest
+  - pip
+  - pip:
+      - pydantic
