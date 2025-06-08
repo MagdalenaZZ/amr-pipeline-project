@@ -20,7 +20,7 @@ workflow {
 
     // Step 1: Preprocess the input samplesheet
     preprocess_inputs(input_samplesheet_ch)
-        
+
     // Step 2: Route based on type
     .branch {
         illumina: it.type == 'illumina'
@@ -60,9 +60,9 @@ process preprocess_inputs {
         --output_dir ./
 
     for f in *.csv; do
-        if [[ "\$f" == *illumina* ]]; then
+        if [[ "$f" == *illumina* ]]; then
             echo -e "illumina\t\$(cut -f1 \$f | tail -n +2)" > illumina_samples.tsv
-        elif [[ "\$f" == *bacterial-genomes* ]]; then
+        elif [[ "$f" == *bacterial-genomes* ]]; then
             echo -e "nanopore\t\$(cut -f1 \$f | tail -n +2)" > nanopore_samples.tsv
         fi
     done
@@ -93,6 +93,7 @@ workflow run_illumina {
             -profile ${params.profile} \
             --input \${meta_dir}/new-fastq-dir \
             --outdir results/illumina/${sample_id} \
+            --work-dir work/illumina/${sample_id} \
             --checkm2_db /tmp/nxf_work/REFERENCES/checkm2_database.tar.gz \
             --mash_db /tmp/nxf_work/REFERENCES/refseq.genomes.k21s1000.msh \
             --blast_db /tmp/nxf_work/REFERENCES/16S_ribosomal_RNA.tar.gz \
@@ -126,7 +127,8 @@ workflow run_nanopore {
             --fastq \${meta_dir}/wf-bacterial-genomes-demo/isolates_fastq \
             --isolates \
             --sample_sheet \${meta_dir}/wf-bacterial-genomes-sample_sheet.csv \
-            --outdir results/nanopore/${sample_id}
+            --outdir results/nanopore/${sample_id} \
+            --work-dir work/nanopore/${sample_id}
         """
     }
 }
@@ -153,7 +155,9 @@ workflow run_funcscan {
             -profile ${params.profile} \
             --input samplesheet.funcscan.csv \
             --outdir funcscan_npass_out \
+            --work-dir work/funcscan/${contigs.name} \
             --run_amp_screening
         """
     }
 }
+
