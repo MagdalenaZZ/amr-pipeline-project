@@ -10,6 +10,8 @@
 - Drafting documentation (README, LLM_USAGE, ARCHITECTURE)
 - Generating code scaffolds (Dockerfile, test examples)
 - Writing example prompts and logic explanations
+- Troubleshooting
+- AWS configurations
 
 ## 🧪 Prompts Used (Examples)
 

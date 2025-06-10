@@ -12,7 +12,7 @@ This document outlines the high-level architecture for executing the AMR analysi
 
 ### 2. **Ingest & Analysis (Nextflow + SLURM)**
 - Pipeline is orchestrated by **Nextflow**
-- Jobs scheduled and parallelized using **SLURM**
+- Jobs scheduled and parallelized using **SLURM**, but for testing I've been using AWS Batch, EC2 and s3
 - Containerized environment ensures reproducibility (Docker)
 
 ### 3. **Lakehouse Layer**
@@ -33,7 +33,7 @@ This document outlines the high-level architecture for executing the AMR analysi
 ## 🔄 Data Flow
 
 1. Upload raw FASTQ to object storage
-2. Trigger analysis pipeline on SLURM cluster
+2. Trigger analysis pipeline on SLURM cluster/AWS
 3. Pipeline produces AMR annotation results
 4. Results converted to structured data (e.g., JSON, CSV, Parquet)
 5. Stored in a lakehouse layer for downstream consumption
