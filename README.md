@@ -73,13 +73,8 @@ conda activate amr-pipeline
 
 _Coming soon – example Nextflow commands and config instructions will be added here._
 
----
 
-## 📁 Data Access
 
-Data is available via ownCloud:
-- 🔗 **URL**: *(Link provided separately)*
-- 🔐 **Password**: `Resurface#Dingbat8#Chamber`
 
 ---
 
