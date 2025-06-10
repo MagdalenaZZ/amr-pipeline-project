@@ -16,11 +16,15 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 ## 📆 Project Structure
 
 ```text
-amr-pipeline-project/
-├── api/                        # FastAPI mock service
+amr-pipeline-project/         
+├── .github                    # github actions test of workflows, for automated testing of committed code 
+   └── workflows
+    └── test.yml
+├── api/                       # FastAPI mock service
 │   ├── __pycache__/
 │   └── main.py
-├── data/                       # (Optional) Raw input data or instructions
+├── data/                      # (Optional) Raw input data or instructions
+├── Docker/		       # For building own Docker images, if needed 	
 ├── documentation/             # Reports, diagrams, pitch deck
 │   ├── AMR.md
 │   ├── ARCHITECTURE.md
