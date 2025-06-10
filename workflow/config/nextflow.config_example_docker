@@ -1,0 +1,30 @@
+workDir = '/tmp/nxf_work/'
+params {
+	isolates=true
+}
+process {
+  withName: 'calling_pipeline:deNovo' {
+    memory = '12 GB'
+    cpus = 3
+  }
+  withName: 'PORECHOP_PORECHOP' {
+    memory = '8 GB'
+    cpus = 3
+  }
+  withName: 'NFCORE_FUNCSCAN:FUNCSCAN:ANNOTATION:PYRODIGAL' {
+    memory = '12 GB'
+    cpus = 3
+  }
+  withName: 'NFCORE_FUNCSCAN:FUNCSCAN:ARG:RGI_CARDANNOTATION' {
+    memory = '12 GB'
+    cpus = 3
+ }
+}
+docker {
+  enabled = true
+  runOptions = '-u $(id -u):$(id -g)'  // Avoid permission issues
+}
+
+
+
+

@@ -1,0 +1,18 @@
+
+process {
+  executor = 'awsbatch'
+  queue = 'nextflow-job-queue'   // ← replace with your actual job queue
+  awscli = 'aws --region eu-west-2'
+
+  // 💡 Add this line below to use your IAM role
+  jobRole = 'arn:aws:iam::670354632452:role/NextflowBatchRole'
+}
+
+aws {
+  region = 'eu-west-2'
+}
+
+
+workDir = 's3://nf-core-data-amr/work'
+
+
