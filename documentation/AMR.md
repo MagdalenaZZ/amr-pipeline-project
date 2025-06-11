@@ -6,9 +6,27 @@ Antibiotikaresistens är en av vår tids största globala hälsoutmaningar. Enli
 
 Traditionella metoder som VITEK2 eller MALDI-TOF MS används idag i klinik, men dessa är kostsamma och kan ta upp till flera dygn att ge resistensprofiler. Genombaserad AMR-diagnostik (med t.ex. Illumina eller Oxford Nanopore) erbjuder ett snabbare och bredare alternativ, och möjliggör dessutom identifiering av plasmidburna resistensgener som ofta förblir oupptäckta med konventionella metoder [Nature Communications, 2024].
 
+## Bakterie-kulturen vi sekvenserat
+
+SAMEA3357140 (INF201) är en klinisk Klebsiella pneumoniae-isolat från urin hos en sjukhuspatient i Melbourne, oktober 2013, och ingår i BioProject PRJNA646837. Isolatet har använts i flera publikationer inom genomisk övervakning och antibiotikaresistens, där både Illumina- och Oxford Nanopore-sekvenser använts.
+
+Klebsiella pneumoniae är en opportunistisk patogen som kan orsaka vårdrelaterade infektioner såsom urinvägsinfektion, lunginflammation, sepsis och sårinfektioner, särskilt hos immunsvaga patienter eller personer med katetrar. Bakterien är en av de mest framträdande inom gruppen ESBL-producerande gramnegativa bakterier, och det är vanligt att hitta resistens mot flera antibiotikaklasser, inklusive:
+
+* β-laktamer (särskilt via ESBL-gener som bla_CTX-M, bla_SHV)
+* Aminoglykosider
+* Fluorokinoloner
+* Trimetoprim-sulfa
+* I vissa fall även karbapenemer, genom förvärv av karbapenemaser som bla_KPC, bla_NDM eller bla_OXA-48.
+
+Flera studier som använt SAMEA3357140 har fokuserat på sjukhusförvärvade infektioner och den genomiska mångfalden hos K. pneumoniae. I Gorrie et al. (2022, Nat Commun) visades att ESBL-positiva stammar, som INF201, har en högre tendens till sjukhusspridning jämfört med ESBL-negativa. Foster-Nyarko et al. (2023, Microb Genom) använde provet som en del av en utvärdering av Nanopore-sekvensering för resistensövervakning, och kunde visa att även utan Illumina-data gick det att identifiera resistensgener och typer med hög noggrannhet. Andra arbeten, såsom Hawkey et al. (2022, Genome Med), har använt stammen för att kartlägga plasmidburna ESBL-gener och deras roll i att driva infektioner inom vårdmiljöer.
+
+
 ## Analys i detta projekt
 
-En pipeline har byggts i Nextflow med stöd för analys av både Illumina- och Nanopore-data. På grund av begränsade resurser har enbart Nanopore-datan analyserats hittills.
+En pipeline har byggts i Nextflow med stöd för analys av både Illumina- och Nanopore-data. 
+
+Illumina assembly med unicycler blev 170 delar, langsta 1,237,597 bp, och N50 pa 436,601
+Nanopore assemly blev 2 delar, genomet (5,282,715 bp) och en plasmid (169,696 bp)
 
 
 
@@ -50,11 +68,17 @@ ML-baserade metoder visar stor potential att lösa dessa frågor mer träffsäke
 
 ## Källor
 
+
+
+
 - Frontiers in Microbiology, 2022 – https://www.frontiersin.org/articles/10.3389/fmicb.2022.1073057/full  
 - Nature Communications, 2024 – https://www.nature.com/articles/s41467-024-49851-4  
 - BMC Genomics, 2025 – https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-025-11267-9  
 - WHO / EClinicalMedicine – https://doi.org/10.1016/j.eclinm.2021.101221
-
+- Nature Communications, 2022 – https://www.nature.com/articles/s41467-022-30703-1
+- Microbial Genomics, 2023 – https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000871
+- Genome Medicine, 2022 – https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01064-7
+- Clinical Infectious Diseases, 2018 – https://doi.org/10.1093/cid/ciy034
 
 
 
