@@ -8,7 +8,7 @@ Traditionella metoder som VITEK2 eller MALDI-TOF MS används idag i klinik, men 
 
 ## Bakteriekulturen vi sekvenserat
 
-SAMEA3357140 (INF201) är ett kliniskt *Klebsiella pneumoniae*-isolat från urin hos en avliden sjukhuspatient i Melbourne, oktober 2013, och ingår i BioProject PRJNA646837. Isolatet har använts i flera publikationer inom genomisk övervakning och antibiotikaresistens, där både Illumina- och Oxford Nanopore-sekvenser använts.
+SAMEA3357140 (INF201) är ett kliniskt *Klebsiella pneumoniae*-isolat från urin hos en avliden sjukhuspatient i Melbourne, oktober 2013, och ingår i BioProject  PRJNA646837. Isolatet har använts i flera publikationer inom genomisk övervakning och antibiotikaresistens, där både Illumina- och Oxford Nanopore-sekvenser använts.
 
 *Klebsiella pneumoniae* är en opportunistisk patogen som kan orsaka vårdrelaterade infektioner såsom urinvägsinfektion, lunginflammation, sepsis och sårinfektioner, särskilt hos immunsvaga patienter eller personer med katetrar. Bakterien är en av de mest framträdande inom gruppen ESBL-producerande gramnegativa bakterier, och det är vanligt att hitta resistens mot flera antibiotikaklasser, inklusive:
 
