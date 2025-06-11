@@ -41,7 +41,7 @@ def make_output_dirs(base_dir):
     os.makedirs(short_dir, exist_ok=True)
     return long_dir, short_dir
 
-def generate_sample_sheets(input_csv, base_dir):
+def generate_sample_sheets(input_csv,base_dir):
     df = pd.read_csv(input_csv, sep=None, engine='python')
 
     illumina_rows = []
@@ -88,9 +88,9 @@ def generate_sample_sheets(input_csv, base_dir):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate input sample sheets for downstream workflows.')
     parser.add_argument('--input', required=True, help='Input master sample sheet (CSV)')
-    parser.add_argument('--outdir', required=True, help='Output directory for generated sample sheets')
     args = parser.parse_args()
-
-    generate_sample_sheets(args.input, args.outdir)
+    base_dir = os.path.dirname(os.path.abspath(args.input))
+    
+    generate_sample_sheets(args.input,base_dir)
 
 
