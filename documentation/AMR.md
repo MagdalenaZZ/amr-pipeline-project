@@ -27,11 +27,14 @@ En pipeline har byggts i Nextflow med stöd för analys av både Illumina- och N
 * Illumina assembly med Unicycler: 170 kontigs, längsta 1,237,597 bp, N50 = 436,601
 * Nanopore assembly: 2 kontigs – kromosom (5,282,715 bp) och plasmid (169,696 bp)
 
-Resistensgener identifierades med AMRFinderPlus.
+Resistensgener identifierades med AMRFinderPlus och abricate. Båda gav samma resultat för båda sekvenserings teknologier.
 
 ### Vad har vi hittat?
 
 Både Illumina- och Nanopore-data visar exakt samma fyra resistensgener med 100 % täckning och identitet mot referenssekvenserna, vilket tyder på hög kvalitet i båda dataset:
+
+Resultatfiler i foldern amr-pipeline-project/results/funcscan
+
 
 | Gen      | Funktion                                        | Resistens mot                 |
 | -------- | ----------------------------------------------- | ----------------------------- |
@@ -70,9 +73,7 @@ Kunde bakterien ha effektivt bekämpats med rätt antibiotikaval i ett tidigt st
 
 
 
-
-
-### 🔍 Skillnader mellan Illumina och Nanopore-resultaten
+### Skillnader mellan Illumina och Nanopore-resultaten
 
 | Aspekt                | Illumina-data       | Nanopore-data       |
 | --------------------- | ------------------- | ------------------- |
@@ -81,7 +82,7 @@ Kunde bakterien ha effektivt bekämpats med rätt antibiotikaval i ett tidigt st
 | Identitet & täckning  | 100 % på alla gener | 100 % på alla gener |
 | Eventuella avvikelser | Ingen               | Ingen               |
 
-🟢 Detta visar att båda teknologierna ger konsekvent resistensprediktion i detta fall.
+Detta visar att båda teknologierna ger konsekvent resistensprediktion i detta fall.
 
 ## Skillnader mellan Illumina och Nanopore-sekvensering
 
