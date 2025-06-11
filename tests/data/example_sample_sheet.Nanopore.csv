@@ -1,0 +1,2 @@
+ID	R1	R2	LongFastQ	Fast5	GenomeSize
+myNP	NA	NA	https://my-data-bucket.s3.eu-west-2.amazonaws.com/data/Nanopore/nanopore.fastq.gz	NA	5.6m

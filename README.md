@@ -88,7 +88,7 @@ This pipeline processes Illumina and/or Nanopore sequencing data to generate ass
 * Optional: **SLURM** if using on HPC
 * Internet access (for container pulls and downloads)
 
-### 📁 Input Format
+###  Input Format
 
 Create a tab-delimited samplesheet:
 
@@ -102,40 +102,46 @@ mysample	NA	NA	https://...nanopore.fastq.gz	NA	5.6m
 * `LongFastQ` = single FASTQ file for Nanopore
 * `GenomeSize` = optional estimated genome size (e.g. `5.6m`)
 
-### 🔮 Run Example
+Examples are provided in the folder data/
+
+### Run Example
 
 ```bash
 nextflow run workflow/main.nf \
-  --input_samplesheet input/example_sample_sheet.csv \
+  --input_samplesheet tests/data/example_sample_sheet_Illumina.csv \
   --outdir results \
   -profile docker
 ```
 
-### 🔄 Pipeline Steps
+###  Pipeline Steps
 
 1. Preprocessing: `scripts/make_input_sample_sheets.py`
 2. Illumina -> `wf-paired-end-illumina-assembly`
 3. Nanopore -> `wf-bacterial-genomes`
 4. Contigs -> `nf-core/funcscan`
 
-### 🌧️ SLURM Usage Example
+The pipeline is comprehensively described in documentation/NEXTFLOW_documentation.md
+
+###  SLURM Usage Example
 
 ```bash
 nextflow run workflow/main.nf \
-  --input_samplesheet input/example_sample_sheet.csv \
+  --input_samplesheet tests/data/example_sample_sheet_Illumina.csv \
   --outdir results \
   -profile docker,slurm
 ```
 
 ---
 
-## 🤖 LLM Usage
+##  LLM Usage
 
 See [`documentation/LLM_USAGE.md`](documentation/LLM_USAGE.md) for details on how AI tools (e.g., ChatGPT) were used to assist with this project.
 
 ---
 
-## 📝 License
+##  License
 
 This project uses an open-source license (e.g., MIT or GPLv3). See `LICENSE` for full terms.
+(not implemented, as this is a dummy project, not intended for use)
+
 

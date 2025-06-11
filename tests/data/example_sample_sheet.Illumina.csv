@@ -1,0 +1,2 @@
+ID	R1	R2	LongFastQ	Fast5	GenomeSize
+mysample	./data/Illumina/illumina_R1.fastq.gz	./data/Illumina/illumina_R2.fastq.gz	NA	NA	5.6m
