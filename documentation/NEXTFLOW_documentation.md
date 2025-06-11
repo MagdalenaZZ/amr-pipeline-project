@@ -40,6 +40,7 @@ The time allotted was not enough to do custom test data, to do benchmarking, to 
 * More careful benchmarking and tool selection
 * Optimise compute, use of reference DBs etc to make the pipelines faster to run. When testing on both AWS and local, I  created a REFERENCE directory to keep up-to-date databases for the pipelines to run from:
 
+```text
 ├── 16S_ribosomal_RNA.tar.gz
 ├── card-data.tar.bz2
 ├── checkm2_database.tar.gz
@@ -48,7 +49,7 @@ The time allotted was not enough to do custom test data, to do benchmarking, to 
 ├── minikraken_20171019_8GB.tgz
 ├── refseq.genomes.k21s1000.msh
 └ README.md   # Where the databases originate from, and how to update them
-
+```
 * In-house forks for easier development
 * More careful separation of workflows for isolates vs clinical or environmental samples with higher impurity, and more effort put into supporting the type of samples you most often get.
 * Integrated metadata handling, for example who requested the sample, its urgency, its origin, who to notify with important results, its consent policy and the data retention policy. These are things we most likely will always have to do in-house to fit with current demands and projects.
