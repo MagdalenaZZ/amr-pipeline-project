@@ -16,54 +16,92 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 ## 📆 Project Structure
 
 ```text
-amr-pipeline-project/         
-├── .github                    # github actions test of workflows, for automated testing of committed code 
-   └── workflows
-    └── test.yml
-├── api/                       # FastAPI mock service
-│   ├── __pycache__/
-│   └── main.py
-├── data/                      # (Optional) Raw input data or instructions
-├── Docker/		       # For building own Docker images, if needed 	
-├── documentation/             # Reports, diagrams, pitch deck
-│   ├── AMR.md
-│   ├── ARCHITECTURE.md
-│   ├── architecture_diagram.png
-│   ├── LLM_USAGE.md
-│   └── PITCH.pptx
-├── environment.yml            # Conda environment setup
-├── input/                     # Example input samplesheets
-│   └── example_sample_sheet.csv
-├── lakehouse/                 # AMR results in tabular formats
-│   ├── amr_results.csv
-│   ├── amr_results.parquet
-│   └── query_amr.sql
+
+.
+├── api					# FastAPI mock service
+│   ├── __pycache__
+│   │   └── main.cpython-310.pyc
+│   └── main.py
+├── assets				# Templates, logos and other assets
+│   ├── email_template.html
+│   └── logo_light.png
+├── bin					# Scripts and functions
+│   ├── export_to_parquet.py
+│   ├── make_input_sample_sheets.py
+│   └── run_duckdb_query.py
+├── conf				# Configuration files
+│   ├── aws.config
+│   ├── base.config
+│   ├── local.config
+│   ├── params.config
+│   └── test.config
+├── data				# Example data - no real data files provided
+│   ├── example_sample_sheet.Illumina.csv
+│   └── example_sample_sheet.Nanopore.csv
+├── Docker				# Example repo for building docker images the pipeline needs
+│   └── amrfinder
+│       └── v.4.0.23
+│           └── Dockerfile
+├── documentation			# Requested documentation
+│   ├── AMR.md
+│   ├── architecture_diagram.png
+│   ├── ARCHITECTURE.md
+│   ├── LLM_USAGE.md
+│   ├── NEXTFLOW_documentation.md
+│   └── PITCH.pptx
+├── environment.yml			# File for building a conda environment with the right dependencies
+├── lakehouse				# AMR results in tabluar format, and example sql query
+│   ├── amr_results.csv
+│   ├── amr_results.parquet
+│   └── query_amr.sql
 ├── LICENSE
-├── main.nf                    # Master Nextflow pipeline entrypoint
-├── nextflow.config
+├── main.nf				# Nextflow main function entrypoint 
+├── modules				# Mockup of modules structure for additional functions
+│   ├── local_function
+│   │   └── main.nf
+│   └── tools
+│       └── tool1
+│           ├── main.nf
+│           └── meta.yml
+├── nextflow.config			# Example config
 ├── README.md
-├── requirements-dev.txt       # (Optional) pip-based environment config
-├── results/                   # Output from Nextflow workflow
-│   ├── funcscan/
-│   ├── illumina/
-│   │   └── multiqc_report.html
-│   └── nanopore/
-├── scripts/                   # Helper scripts
-│   ├── export_to_parquet.py
-│   ├── make_input_sample_sheets.py
-│   └── run_duckdb_query.py
-├── slurm/                     # SLURM job submission example
-│   └── example_submit.sh
-├── tests/                     # Pytest-based unit tests
-│   ├── __init__.py
-│   ├── data/
-│   ├── test_pipeline.py
-│   └── test_utils.py
-├── work/                      # Nextflow temporary files
-└── workflow/                  # Nextflow pipeline modules and config
-    ├── config/
-    │   └── nextflow.config
-    └── main.nf
+├── requirements-dev.txt		# Required packages for development of this package
+├── results				# Example results, no sequence data appended
+│   ├── funcscan
+│   │   ├── abricate.ill.tsv
+│   │   ├── abricate.np.tsv
+│   │   ├── AMRFinderPlus.ill.tsv
+│   │   └── AMRFinderPlus.np.tsv
+│   ├── illumina
+│   │   ├── assembly.fasta
+│   │   ├── assembly.fasta.fai
+│   │   └── multiqc_report.html
+│   └── nanopore
+│       ├── filtered_contigs.fasta
+│       └── filtered_contigs.fasta.fai
+├── slurm				# SLURM job submission example for use on local HPC
+│   └── example_submit.sh
+├── tests				# Pytest-based unit tests and test data (no real tests or test data provided)
+│   ├── __init__.py
+│   ├── config
+│   │   └── test.config
+│   ├── data
+│   │   ├── example_sample_sheet.Illumina.csv
+│   │   └── example_sample_sheet.Nanopore.csv
+│   ├── test_pipeline.py
+│   └── test_utils.py
+├── work				# Nextflow temporary files
+└── workflows				# Nextflow pipeline modules and config
+    ├── CHANGELOG.md
+    ├── CITATIONS.md
+    ├── config
+    ├── main.nf
+    └── subworkflows
+        └── local
+            └── utils
+                └── email_sender.nf
+
+
 ```
 
 ---
