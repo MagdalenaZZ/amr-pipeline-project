@@ -32,12 +32,16 @@ Full workflow schema here: https://github.com/nf-core/funcscan/blob/master/docs/
 
 
 *Reflection*
+
 I could have written my own nextflow pipeline from first principles, but it would probably not be as good as some of these which people have been working on for years. A pipeline like bacpaq already claims to be a nextflow bioinformatics best-practice pipeline for bacterial genomic analysis for short-reads (Illumina) and long-reads (Oxford Nanopore) sequencing data, and identifies AMR genes using RGI, AMRFinderPlus, ABRicate, abriTAMR, and Resfinder.  
 So, I chose a somewhat arbirtary approach of doing a nextflow pipeline which implements three other nextflow pipelines, and some custom scripts to generate input files, do some unit and integration testing through github actions, and create database entries from results (not implemented). 
 The time allotted was not enough to do custom test data, to do benchmarking, to implement comprehensive testing, or even get it reliably runing on AWS. With more time we could prioritise:
 * Runtime reporting with nanopore for urgent cases 
 * Custom reports for clinicians
 * More careful benchmarking and tool selection
+* In-house forks for easier development
+* More careful separation of workflows for isolates vs clinical or environmental samples with higher impurity, and more effort put into supporting the type of samples you most often get.
+* Integrated metadata handling, for example who requested the sample, its urgency, its origin, who to notify with important results, its consent policy and the data retention policy. These are things we most likely will always have to do in-house to fit with current demands and projects.
 * Optimise compute, use of reference DBs etc to make the pipelines faster to run. When testing on both AWS and local, I  created a REFERENCE directory to keep up-to-date databases for the pipelines to run from:
 
 ```text
@@ -50,9 +54,8 @@ The time allotted was not enough to do custom test data, to do benchmarking, to 
 ├── refseq.genomes.k21s1000.msh
 └ README.md   # Where the databases originate from, and how to update them
 ```
-* In-house forks for easier development
-* More careful separation of workflows for isolates vs clinical or environmental samples with higher impurity, and more effort put into supporting the type of samples you most often get.
-* Integrated metadata handling, for example who requested the sample, its urgency, its origin, who to notify with important results, its consent policy and the data retention policy. These are things we most likely will always have to do in-house to fit with current demands and projects.
+
+
 
 
 
