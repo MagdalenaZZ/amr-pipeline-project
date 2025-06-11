@@ -4,7 +4,7 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 
 ---
 
-## 🚀 Objectives
+##  Objectives
 
 * Perform quality control, assembly, and AMR annotation on mock bacterial genomes
 * Compare AMR profiles between Illumina and Nanopore platforms
@@ -13,7 +13,7 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 
 ---
 
-## 📆 Project Structure
+##  Project Structure
 
 ```text
 
@@ -110,16 +110,16 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 
 ```bash
 conda env create -f environment.yml
-conda activate amr-pipeline
+conda activate amr-pipeline-project
 ```
 
 ---
 
-## 🛠️ Running the Pipeline
+##  Running the Pipeline
 
 This pipeline processes Illumina and/or Nanopore sequencing data to generate assembled genomes and perform AMR analysis. It automatically detects the platform type (short-read or long-read) per sample and routes them through appropriate sub-workflows.
 
-### 🔧 Requirements
+###  Requirements
 
 * **Nextflow** `>=22.10.0`
 * **Docker** (or Singularity)
@@ -132,7 +132,7 @@ Create a tab-delimited samplesheet:
 
 ```tsv
 ID	R1	R2	LongFastQ	Fast5	GenomeSize
-ERR044595	https://..._R1.fastq.gz	https://..._R2.fastq.gz	NA	NA	2.8m
+ERR044595	https://..._R1.fastq.gz	https://..._R2.fastq.gz	NA	NA	5.6m
 mysample	NA	NA	https://...nanopore.fastq.gz	NA	5.6m
 ```
 
@@ -145,15 +145,15 @@ Examples are provided in the folder data/
 ### Run Example
 
 ```bash
-nextflow run workflow/main.nf \
-  --input_samplesheet tests/data/example_sample_sheet_Illumina.csv \
+nextflow run workflows/main.nf \
+  --input_samplesheet tests/data/example_sample_sheet.Illumina.csv \
   --outdir results \
   -profile docker
 ```
 
 ###  Pipeline Steps
 
-1. Preprocessing: `scripts/make_input_sample_sheets.py`
+1. Preprocessing: `bin/make_input_sample_sheets.py`
 2. Illumina -> `wf-paired-end-illumina-assembly`
 3. Nanopore -> `wf-bacterial-genomes`
 4. Contigs -> `nf-core/funcscan`
@@ -163,8 +163,8 @@ The pipeline is comprehensively described in documentation/NEXTFLOW_documentatio
 ###  SLURM Usage Example
 
 ```bash
-nextflow run workflow/main.nf \
-  --input_samplesheet tests/data/example_sample_sheet_Illumina.csv \
+nextflow run workflows/main.nf \
+  --input_samplesheet tests/data/example_sample_sheet.Illumina.csv \
   --outdir results \
   -profile docker,slurm
 ```
