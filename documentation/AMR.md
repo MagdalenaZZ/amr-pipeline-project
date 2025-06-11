@@ -99,6 +99,7 @@ Detta visar att båda teknologierna ger konsekvent resistensprediktion i detta f
 
 Det sker en snabb teknikutveckling:
 
+* **Bättre databaser**: Som innehåller kliniskt testade fenotyper av olika varianter
 * **Bättre mjukvara**: Verktyg som Abricate, AMRFinder och RGI förbättras kontinuerligt
 * **AI/ML-algoritmer**: Kan ersätta BLAST-liknande sökningar med strukturell och funktionell klassificering
 * **Realtidsanalys**: MinION möjliggör flera patientprover per dygn för samma patient, vilket möjliggör snabb detektion av resistens
