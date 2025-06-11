@@ -1,0 +1,10 @@
+Using nucl database ncbi:  5386 sequences -  2022-Nov-16
+#FILE	SEQUENCE	START	END	STRAND	GENE	COVERAGE	COVERAGE_MAP	GAPS	%COVERAGE	%IDENTITY	DATABASE	ACCESSION	PRODUCT	RESISTANCE
+Processing: /data/filtered_contigs.fasta
+Found 4 genes in /data/filtered_contigs.fasta
+/data/filtered_contigs.fasta	contig_1	221106	221966	-	blaSHV-145	1-861/861	===============	0/0	100.00	99.88	ncbi	NG_050019.1	class A beta-lactamase SHV-145	BETA-LACTAM
+/data/filtered_contigs.fasta	contig_1	1788339	1789514	+	oqxA11	1-1176/1176	===============	0/0	100.00	99.66	ncbi	NG_050419.1	multidrug efflux RND transporter periplasmic adaptor subunit OqxA11	PHENICOL;QUINOLONE
+/data/filtered_contigs.fasta	contig_1	1789538	1792690	+	oqxB20	1-3153/3153	===============	0/0	100.00	99.11	ncbi	NG_050439.1	multidrug efflux RND transporter permease subunit OqxB20	PHENICOL;QUINOLONE
+/data/filtered_contigs.fasta	contig_1	3694552	3694971	+	fosA_gen	1-420/420	===============	0/0	100.00	100.00	ncbi	NG_047882.1	FosA family fosfomycin resistance glutathione transferase	FOSFOMYCIN
+Tip: have a suggestion for abricate? Tell me at https://github.com/tseemann/abricate/issues
+Done.

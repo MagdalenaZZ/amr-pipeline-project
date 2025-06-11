@@ -156,7 +156,7 @@ workflow run_funcscan {
             --input samplesheet.funcscan.csv \
             --outdir funcscan_npass_out \
             --work-dir work/funcscan/${contigs.name} \
-            --run_amp_screening
+            --run_arg_screening
         """
     }
 }

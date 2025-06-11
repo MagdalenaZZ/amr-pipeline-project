@@ -29,7 +29,7 @@ En pipeline har byggts i Nextflow med stöd för analys av både Illumina- och N
 
 Resistensgener identifierades med AMRFinderPlus.
 
-### 🧬 Vad har vi hittat?
+### Vad har vi hittat?
 
 Både Illumina- och Nanopore-data visar exakt samma fyra resistensgener med 100 % täckning och identitet mot referenssekvenserna, vilket tyder på hög kvalitet i båda dataset:
 
@@ -40,11 +40,37 @@ Både Illumina- och Nanopore-data visar exakt samma fyra resistensgener med 100 
 | oqxB19   | OqxAB-effluxpump, membranbunden permease        | Fluorokinoloner & fenikoler   |
 | fosA     | Glutation-transferas som inaktiverar fosfomycin | Fosfomycin                    |
 
-💡 **Noterbart:**
+### Vad säger de fyra resistensgenerna?
+
+| Gen               | Vad den gör                                                                                  | Vad det innebär kliniskt                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **blaSHV-1**      | Kodar för en bredspektrum β-laktamas som kan bryta ner penicilliner och vissa cefalosporiner | Bakterien är **resistent mot äldre penicilliner** (t.ex. ampicillin), men **inte mot ESBL-skyddade eller karbapenemer** |
+| **oqxA11/oqxB19** | Delar av en **effluxpump** (OqxAB) som aktivt pumpar ut antibiotika ur cellen                | Ger **låggradig resistens mot fluorokinoloner** (t.ex. ciprofloxacin) och **fenikoler** (t.ex. kloramfenikol)           |
+| **fosA**          | Ett enzym som inaktiverar **fosfomycin** genom glutation-konjugering                         | Bakterien är sannolikt **resistent mot fosfomycin**                                                                     |
+
+Deet betyder alltså att det finns förutsägbar resistens mot:
+* Ampicillin och liknande penicilliner → pga blaSHV-1
+* Fosfomycin → pga fosA
+* Delvis mot fluorokinoloner och kloramfenikol → pga oqxAB-effluxpumpen
+
+Men:
+Det finns ingen genetisk evidens för:
+* ESBL (Extended-Spectrum Beta-Lactamases) t.ex. bla_CTX-M, bla_SHV-12
+* Karbapenemaser (t.ex. bla_KPC, bla_NDM)
+* Aminoglykosidresistens
+→ vilket talar för att isolatet kan vara känsligt för flera bredspektrum-antibiotika, t.ex. Cefotaxim, cefepim eller ceftazidim (moderna cefalosporiner), Karbapenemer (t.ex. meropenem) – mycket troligen känslig, Piperacillin-tazobaktam – eventuellt effektiv, Aminoglykosider (t.ex. gentamicin) – sannolikt känslig, men okänt. Varning!!! - detta är en prediktion baserad på genotyp – det är inte säkert förrän fenotyp (AST-test) bekräftar det.
+
+Kunde bakterien ha effektivt bekämpats med rätt antibiotikaval i ett tidigt stadium - mycket troligt.
+
+**Noterbart:**
 
 * *blaSHV-1* är inte i sig en ESBL-gen, men nära besläktade varianter (*blaSHV-2/12/28*) kan vara det.
 * *oqxAB*-effluxpumpen är ofta kromosomalt kodad och ger låggradig resistens.
 * *fosA* är vanlig i *K. pneumoniae* och ger fosfomycinresistens.
+
+
+
+
 
 ### 🔍 Skillnader mellan Illumina och Nanopore-resultaten
 
@@ -65,16 +91,16 @@ Både Illumina- och Nanopore-data visar exakt samma fyra resistensgener med 100 
 | Nanopore  | Snabb analys (<5h), realtidsdata, bra för struktur och plasmidkarta | Högre felprocent, kräver avancerad QC              |
 
 > En studie av 69 *Salmonella*-serotyper visade att korrekt serotypning och AMR-prediktion kunde uppnås inom \~5 timmar med Nanopore vid 30× täckning \[Wu 2022].
+> Genombaserade metoder möjliggör mer högupplösta och snabba AMR-analyser än tidigare. Exempelvis har kombinationen av Illumina och Nanopore använts för att analysera *C. difficile*-isolat med goda resultat (Bejaoui 2025).
+> Det har nu visats att sekvensering och AMR detektion ifrån sekvensdata kan ge meningsfulla resultat för implementering i klinik (Sauerborn 2024).
 
 ## Framtid och utveckling
 
-Genombaserade metoder möjliggör mer högupplösta och snabba AMR-analyser än tidigare. Exempelvis har kombinationen av Illumina och Nanopore använts för att analysera *C. difficile*-isolat med goda resultat \[BMC Genomics, 2025].
-
-Samtidigt sker en snabb teknikutveckling:
+Det sker en snabb teknikutveckling:
 
 * **Bättre mjukvara**: Verktyg som Abricate, AMRFinder och RGI förbättras kontinuerligt
-* **AI/ML-algoritmer**: Kan ersätta BLAST-liknande sökningar med strukturell, funktionell klassificering
-* **Realtidsanalys**: MinION möjliggör flera patientprover per dygn
+* **AI/ML-algoritmer**: Kan ersätta BLAST-liknande sökningar med strukturell och funktionell klassificering
+* **Realtidsanalys**: MinION möjliggör flera patientprover per dygn för samma patient, vilket möjliggör snabb detektion av resistens
 
 ## Kritisk reflektion
 
@@ -84,7 +110,7 @@ AMR-diagnostik kräver mer än att bara hitta "rätt gener". För att verkligen 
 * Varianter: Är det en funktionell mutation, eller en neutral variant?
 * Samspel: Kombinationer av resistensmekanismer måste analyseras integrerat
 
-ML-baserade metoder visar stor potential att lösa dessa frågor mer träffsäkert än tidigare cutoffs eller percent identity-sökningar. I takt med att datakvalitet och referensdatabaser förbättras, kommer detta område snabbt utvecklas till snabbare kliniskt beslutsstöd i realtid – och förhoppningsvis till fler patienter som överlever.
+ML-baserade metoder visar stor potential att lösa dessa frågor mer träffsäkert än tidigare cutoffs eller percent identity-sökningar. I takt med att datakvalitet och referensdatabaser förbättras, kommer detta område snabbt utvecklas till snabbare kliniskt beslutsstöd i realtid – och förhoppningsvis till mer kostnadseffektiv vård, och att fler patienter som överlever.
 
 ## Källor
 
