@@ -17,7 +17,11 @@ This project implements a reproducible bioinformatics pipeline for antimicrobial
 
 ```text
 
+
 .
+├── github				# Outline of CI/CD testing with GitHub Actions
+│   └── workflows
+│      └── test.yml
 ├── api					# FastAPI mock service
 │   ├── __pycache__
 │   │   └── main.cpython-310.pyc
@@ -184,6 +188,7 @@ Build the database lakehouse/amr_results.parquet from some example data lakehous
 ```bash
 python bin/export_to_parquet.py
 ```
+
 A simple SQL query to the database using DuckDB
 ```bash
 python bin/run_duckdb_query.py
@@ -195,6 +200,13 @@ uvicorn api.main:app --reload
 ```
 Navigate to the URL to see the results
 http://localhost:8000/api/amr-summary
+
+---
+
+##  Testing
+
+Testing is done using pytest and GitHub Actions, only outline implemented
+cat .github/workflows/test.yml
 
 ---
 

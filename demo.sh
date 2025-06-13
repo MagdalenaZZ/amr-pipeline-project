@@ -23,5 +23,6 @@ uvicorn api.main:app --reload
 # Navigate to the URL to see the results
 http://localhost:8000/api/amr-summary 
 
-
+# Testning
+cat .github/workflows/test.yml
 
