@@ -17,6 +17,11 @@ python bin/export_to_parquet.py
 # En enkel sql fraga till databasen 
 python bin/run_duckdb_query.py
 
+# Start the API layer 
+uvicorn api.main:app --reload
+
+# Navigate to the URL to see the results
+http://localhost:8000/api/amr-summary 
 
 
 

@@ -171,6 +171,33 @@ nextflow run workflows/main.nf \
 
 ---
 
+##  Testing the full architecture
+
+Build a docker container
+
+```bash
+docker build -t amrfinder:v.4.0.23 -f Docker/amrfinder/v.4.0.23/Dockerfile .
+open /Applications/Docker.app
+```
+
+Build the database lakehouse/amr_results.parquet from some example data lakehouse/amr_results.csv 
+```bash
+python bin/export_to_parquet.py
+```
+A simple SQL query to the database using DuckDB
+```bash
+python bin/run_duckdb_query.py
+```
+
+Start the API layer
+```bash
+uvicorn api.main:app --reload
+```
+Navigate to the URL to see the results
+http://localhost:8000/api/amr-summary
+
+---
+
 ##  LLM Usage
 
 See [`documentation/LLM_USAGE.md`](documentation/LLM_USAGE.md) for details on how AI tools (e.g., ChatGPT) were used to assist with this project.
